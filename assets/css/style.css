@@ -1,0 +1,9 @@
+.header-bg {
+    background: linear-gradient(to right, #0000ff, #00004d);
+}
+.card {
+    margin-bottom: 10px;
+    width: auto;
+    background-color: #36465a;
+    color: #fff;
+}
