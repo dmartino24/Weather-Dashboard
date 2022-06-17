@@ -181,12 +181,10 @@ const searchCity = function () {
 // save the data into an array for future use, making sure there are only eight objects saved
 const saveData = function (data) {
   savedCities.unshift(data);
-  console.log(savedCities[0]);
   if (savedCities.length > 8) {
     savedCities.pop();
     //localStorage.removeItem(cityToRemove);
   }
-  console.log(savedCities.length, data);
   localStorage.setItem(savedCities.length - 1, JSON.stringify(data));
 };
 // fetching an api object from the input then saving and updating the ui
