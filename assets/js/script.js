@@ -83,6 +83,7 @@ const updateFiveDayForecast = function (data) {
     cardBodyEl.appendChild(humidityEl);
   }
 };
+// updated the current day forecast 
 const updateTodayForecast = function (data) {
   todayForecastEl.classList.add("border");
   const iconCode = data.weather[0].icon;
@@ -143,6 +144,7 @@ const updateTodayForecast = function (data) {
     }
   });
 };
+// update the buttons with click events so you can quickly get the weather report from history
 const updateButtonList = function () {
   for (let i = 0; i < savedCities.length; i++) {
     let buttonEl = document.createElement("button");
@@ -153,9 +155,11 @@ const updateButtonList = function () {
     buttonListEl.appendChild(buttonEl);
   }
 };
+// handles the click event to get the city
 const buttonClickHandler = function (event) {
   fetchCity(event.target.value);
 };
+// resets the ui elements for new dynamic elements to be added to the page
 const removeElements = function () {
   while (buttonListEl.firstChild) {
     buttonListEl.removeChild(buttonListEl.firstChild);
@@ -169,10 +173,12 @@ const removeElements = function () {
   fiveDayTitleEl.textContent = "";
   todayForecastEl.classList.remove("border");
 };
+// gets the city input field than fetches the correct city from api
 const searchCity = function () {
   let cityInput = document.querySelector("#city-input").value.trim();
   fetchCity(cityInput);
 };
+// save the data into an array for future use, making sure there are only eight objects saved
 const saveData = function (data) {
   savedCities.unshift(data);
   console.log(savedCities[0]);
@@ -183,6 +189,7 @@ const saveData = function (data) {
   console.log(savedCities.length, data);
   localStorage.setItem(savedCities.length - 1, JSON.stringify(data));
 };
+// fetching an api object from the input then saving and updating the ui
 const fetchCity = function (input) {
   const key = "24ab0d6fe4d90e6881686a1fcc7b9943";
   const apiUrl =
@@ -202,5 +209,7 @@ const fetchCity = function (input) {
     }
   });
 };
+// init the page
 updatePage();
+// adding an event listener to the search button for a click
 searchButtonEl.addEventListener("click", searchCity);
