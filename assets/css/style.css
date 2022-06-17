@@ -4,6 +4,7 @@
 .card {
     margin-bottom: 10px;
     width: auto;
+    padding: 0;
     background-color: #36465a;
     color: #fff;
 }
